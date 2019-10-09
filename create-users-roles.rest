@@ -1,0 +1,55 @@
+https://elastic:changeme@virtual-spice:19200
+POST /_security/user/kibana/_password
+{
+  "password" : "changeme"
+}
+
+https://elastic:changeme@virtual-spice:19200
+POST /_security/role/ilm
+{
+  "cluster": [
+    "manage_ilm"
+  ],
+  "indices": [
+    {
+      "names": [
+        "ilm-*",
+        "shrink-ilm-*",
+        "metricbeat-*",
+        "filebeat-*"
+      ],
+      "privileges": [
+        "create_index",
+        "manage",
+        "write",
+        "manage_ilm"
+      ]
+    }
+  ]
+}
+
+https://elastic:changeme@virtual-spice:19200
+POST /_security/role/metricbeat_writer
+{
+  "cluster": ["manage_index_templates", "monitor"],
+  "indices": [
+    {
+      "names": [ "metricbeat-*" ],
+      "privileges": ["write","create_index"]
+    }
+  ]
+}
+
+https://elastic:changeme@virtual-spice:19200
+POST /_security/user/metricbeat_writer
+{
+  "password" : "changeme",
+  "roles" : [ "metricbeat_writer","kibana_user","ilm"],
+  "full_name" : "Internal Metricbeat User"
+}
+
+https://elastic:changeme@virtual-spice:19200
+POST /_security/user/beats_system/_password
+{
+  "password" : "changeme"
+}

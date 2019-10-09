@@ -1,0 +1,3 @@
+https://elastic:changeme@spicy.local
+kbn-version: 8.0.0
+POST /kbn/api/reporting/generate/printablePdf

@@ -1,0 +1,10 @@
+http://elastic:changeme@spicy.local:443
+kbn-version: 8.0.0
+POST /kbn/api/reporting-performance/run
+
+https://elastic:changeme@virtual-spice:19200
+POST /_security/role/ilm
+
+http://elastic:changeme@localhost:9200
+POST /.reporting*/_delete_by_query
+{ "query": { "match_all": {} } }
