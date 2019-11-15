@@ -16,3 +16,7 @@ POST /.reporting*/_delete_by_query
 http://elastic:changeme@localhost:9200
 POST /.kibana_task_manager/_delete_by_query
 { "query": { "match_all": {} } }
+
+http://elastic:changeme@localhost:9200
+POST /.kibana*/_delete_by_query
+{ "query": { "match_all": {} } }
