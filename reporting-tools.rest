@@ -19,3 +19,6 @@ DELETE /.kibana_task_manager*
 
 http://elastic:changeme@localhost:9200
 DELETE /.kibana*
+
+http://elastic:changeme@localhost:9200
+DELETE /.reporting*
