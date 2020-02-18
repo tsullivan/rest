@@ -6,3 +6,8 @@ POST /kbn/api/reporting/generate/csv?jobParams=(conflictedTypesFields:!(),fields
 https://elastic:changeme@spicy.local:443
 kbn-version: 7.7.0
 POST /kbn/api/reporting/generate/printablePdf?jobParams=(browserTimezone:America%2FPhoenix,layout:(dimensions:(height:792,width:612),id:preserve_layout),objectType:'canvas%20workpad',relativeUrls:!(%2Fapp%2Fcanvas%23%2Fexport%2Fworkpad%2Fpdf%2Fworkpad-c3e3c20c-79ea-451a-bee3-757ab535ab28%2Fpage%2F1),title:'My%20Canvas%20Workpad%20-%20Status')
+
+# canvas 3-page
+https://elastic:changeme@spicy.local:443
+kbn-version: 7.7.0
+POST /kbn/api/reporting/generate/printablePdf?jobParams=(browserTimezone:America%2FPhoenix,layout:(dimensions:(height:792,width:612),id:preserve_layout),objectType:'canvas%20workpad',relativeUrls:!(%2Fapp%2Fcanvas%23%2Fexport%2Fworkpad%2Fpdf%2Fworkpad-c3e3c20c-79ea-451a-bee3-757ab535ab28%2Fpage%2F1,%2Fapp%2Fcanvas%23%2Fexport%2Fworkpad%2Fpdf%2Fworkpad-c3e3c20c-79ea-451a-bee3-757ab535ab28%2Fpage%2F2,%2Fapp%2Fcanvas%23%2Fexport%2Fworkpad%2Fpdf%2Fworkpad-c3e3c20c-79ea-451a-bee3-757ab535ab28%2Fpage%2F3),title:'My%20Canvas%20Workpad%20-%20Status')
