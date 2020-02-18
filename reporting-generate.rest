@@ -1,3 +1,8 @@
 https://elastic:changeme@spicy.local:443
 kbn-version: 7.5.3
 POST /kbn/api/reporting/generate/csv?jobParams=(conflictedTypesFields:!(),fields:!(order_date,customer_first_name),indexPatternId:ff959d40-b880-11e8-a6d9-e546fe2bba5f,metaFields:!(_source,_id,_type,_index,_score),searchRequest:(body:(_source:(excludes:!(),includes:!(order_date,customer_first_name)),docvalue_fields:!((field:order_date,format:date_time)),query:(bool:(filter:!((range:(order_date:(format:strict_date_optional_time,gte:%272019-10-28T22:32:37.700Z%27,lte:%272020-02-10T22:32:37.700Z%27)))),must:!((query_string:(analyze_wildcard:!t,query:%27Muni*%27,time_zone:America%2FPhoenix))),must_not:!(),should:!())),script_fields:(),sort:!((order_date:(order:desc,unmapped_type:boolean))),stored_fields:!(order_date,customer_first_name),version:!t),index:kibana_sample_data_ecommerce),title:mnkkggh,type:search)
+
+# canvas 1-page
+https://elastic:changeme@spicy.local:443
+kbn-version: 7.7.0
+POST /kbn/api/reporting/generate/printablePdf?jobParams=(browserTimezone:America%2FPhoenix,layout:(dimensions:(height:792,width:612),id:preserve_layout),objectType:'canvas%20workpad',relativeUrls:!(%2Fapp%2Fcanvas%23%2Fexport%2Fworkpad%2Fpdf%2Fworkpad-c3e3c20c-79ea-451a-bee3-757ab535ab28%2Fpage%2F1),title:'My%20Canvas%20Workpad%20-%20Status')
