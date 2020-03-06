@@ -1,13 +1,18 @@
 http://elastic:changeme@localhost:9200
+GET /_cat/indices/
+
+http://elastic:changeme@localhost:9200
+DELETE /license
+
+http://elastic:changeme@localhost:9200
+DELETE /.kibana*
+
+http://elastic:changeme@localhost:9200
+POST /.kibana*/_search
+{ "query": { "match_all": {} } }
+
+http://elastic:changeme@localhost:9200
 POST /.kibana_task_manager/_search
-{ "query": { "match_all": {} } }
-
-http://elastic:changeme@localhost:9200
-POST /.reporting*/_delete_by_query
-{ "query": { "match_all": {} } }
-
-http://elastic:changeme@localhost:9200
-POST /.kibana_task_manager/_delete_by_query
 { "query": { "match_all": {} } }
 
 http://elastic:changeme@localhost:9200
@@ -22,3 +27,18 @@ DELETE /.kibana*
 
 http://elastic:changeme@localhost:9200
 DELETE /.reporting*
+
+http://elastic:changeme@localhost:9200
+GET /_license
+
+http://elastic:changeme@localhost:9200
+POST /apm*/_delete_by_query
+{ "query": { "match_all": {} } }
+
+http://elastic:changeme@localhost:9200
+POST /.reporting*/_delete_by_query
+{ "query": { "match_all": {} } }
+
+https://elastic:changeme@spicy.local:443
+kbn-version: 8.0.0
+GET /kbn/_xpack/usage
