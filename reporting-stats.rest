@@ -15,7 +15,8 @@ POST /.reporting*/_search
     "created_at": {
       "order": "desc"
     }
-  }
+  },
+  "_source": ["payload"]
 }
 
 #############################################

@@ -1,0 +1,32 @@
+http://elastic:changeme@localhost:9220
+POST /.kibana*/_search
+{
+  "aggs": {
+    "types": {
+      "terms": {
+        "field": "type",
+        "size": 100
+      }
+    }
+  }
+}
+
+http://elastic:changeme@localhost:9220
+POST /.kibana*/_search?size=100
+{
+  "query": {
+    "match": {
+      "type": "background-session"
+    }
+  }
+}
+
+http://elastic:changeme@localhost:9220
+POST /.kibana*/_delete_by_query
+{
+  "query": {
+    "match": {
+      "type": "background-session"
+    }
+  }
+}

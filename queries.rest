@@ -1,0 +1,19 @@
+https://elastic:changeme@paninix:9200
+GET /_cat/indices
+
+https://elastic:changeme@paninix:9200
+POST /tests-*/_search?size=0
+{
+  "aggs": {
+    "allmychildren": {
+      "sum": {
+        "field": "avocadoes"
+      }
+    },
+    "allmyfortunecookies": {
+      "sum": {
+        "field": "avocadoes"
+      }
+    }
+  }
+}
