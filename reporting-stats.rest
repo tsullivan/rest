@@ -1,3 +1,47 @@
 https://elastic:changeme@spicy.local
 kbn-version: 8.0.0
 POST /kbn/api/reporting/generate/printablePdf
+
+#############################################
+
+https://elastic:changeme@localhost:9200
+POST /.reporting*/_search
+{
+  "query": {
+    "match_all": {}
+  },
+  "size": 1,
+  "sort": {
+    "created_at": {
+      "order": "desc"
+    }
+  }
+}
+
+#############################################
+
+https://elastic:changeme@localhost:9200
+DELETE /.reporting*
+
+https://elastic:changeme@localhost:9200
+POST /.reporting*/_search
+{
+  "aggs": {
+    "ranges": {
+      "aggs": {
+        "jobTypes": { "terms": { "field": "jobtype", "size": 10 } },
+        "layoutTypes": { "aggs": { "pdf": { "terms": { "field": "meta.layout.keyword", "size": 10 } } }, "filter": { "term": { "jobtype": "printable_pdf" } } },
+        "objectTypes": { "aggs": { "pdf": { "terms": { "field": "meta.objectType.keyword", "size": 10 } } }, "filter": { "term": { "jobtype": "printable_pdf" } } },
+        "statusByApp": { "aggs": { "jobTypes": { "aggs": { "appNames": { "terms": { "field": "meta.objectType.keyword", "size": 10 } } }, "terms": { "field": "jobtype", "size": 10 } } }, "terms": { "field": "status", "size": 10 } },
+        "statusTypes": { "terms": { "field": "status", "size": 10 } }
+      },
+      "filters": {
+        "filters": {
+          "all": { "match_all": {} },
+          "last7Days": { "range": { "created_at": { "gte": "now-7d/d" } } }
+        }
+      }
+    }
+  },
+  "size": 0
+}

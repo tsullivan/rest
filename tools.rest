@@ -78,7 +78,7 @@ POST /.kibana_task_manager/_delete_by_query
 {
   "query": {
     "match": {
-      "task.taskType": "reporting:store-maintenance"
+      "task.taskType": "reporting:cleanup"
     }
   }
 }
@@ -94,4 +94,3 @@ DELETE /.kibana-even*
  
 https://elastic:changeme@localhost:9200
 DELETE /.kibana_task*
- 

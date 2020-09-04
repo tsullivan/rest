@@ -1,0 +1,11 @@
+https://userA:11111111@paninix
+kbn-version: 7.4.2
+GET /kibana/api/reporting/jobs/info/keadykr70006dd6061dnimsc
+
+https://userA:11111111@paninix
+kbn-version: 7.4.2
+GET /kibana/api/reporting/jobs/download/keadykr70006dd6061dnimsc
+
+https://userB:11111111@paninix
+kbn-version: 7.4.2
+GET /kibana/api/reporting/jobs/download/keadykr70006dd6061dnimsc
