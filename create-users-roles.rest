@@ -20,3 +20,41 @@ POST /_security/user/beats_system/_password
 
 https://elastic:changeme@localhost:19200
 GET /_ingest/pipeline/apm
+
+https://elastic:changeme@localhost:19200
+POST /_security/role/data_user
+{
+  "applications": [
+    {
+      "application": "kibana-.kibana",
+      "privileges": [ "space_read" ],
+      "resources": [ "space:default" ]
+    }
+  ],
+  "cluster": [],
+  "indices": [
+    {
+      "allow_restricted_indices": false,
+      "field_security": {
+        "except": [],
+        "grant": [ "*" ]
+      },
+      "names": [ "tests-*" ],
+      "privileges": [ "all" ]
+    }
+  ],
+  "metadata": {},
+  "run_as": [],
+  "transient_metadata": { "enabled": true }
+}
+
+https://elastic:changeme@localhost:19200
+POST /_security/user/test_user
+{
+  "email": "changeme@example.com",
+  "enabled": true,
+  "full_name": "Test T. User",
+  "metadata": {},
+  "password": "changeme",
+  "roles": [ "apm_user", "data_user" ]
+}

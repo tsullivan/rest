@@ -80,9 +80,7 @@ https://elastic:changeme@localhost:9200
 POST /.kibana_task_manager/_delete_by_query
 {
   "query": {
-    "match": {
-      "task.taskType": "reporting:harvest"
-    }
+    "match_all": {}
   }
 }
 

@@ -11,7 +11,7 @@ POST /.kibana*/_search
   }
 }
 
-http://elastic:changeme@localhost:9220
+https://elastic:changeme@localhost:9200
 POST /.kibana*/_search?size=100
 {
   "query": {
@@ -21,7 +21,7 @@ POST /.kibana*/_search?size=100
   }
 }
 
-http://elastic:changeme@localhost:9220
+https://elastic:changeme@localhost:9200
 POST /.kibana*/_delete_by_query
 {
   "query": {
