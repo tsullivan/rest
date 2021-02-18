@@ -1,27 +1,27 @@
-https://elastic:changeme@localhost:19200
+https://elastic:changeme@localhost:9200
 POST /_security/user/kibana/_password
 { "password" : "changeme" }
 
-https://elastic:changeme@localhost:19200
+https://elastic:changeme@localhost:9200
 POST /_security/role/ilm
 { "cluster": [ "manage_ilm" ], "indices": [ { "names": [ "ilm-*", "shrink-ilm-*", "apm-*", "metricbeat-*", "filebeat-*" ], "privileges": [ "create_index", "manage", "write", "manage_ilm" ] } ] }
 
-https://elastic:changeme@localhost:19200
+https://elastic:changeme@localhost:9200
 POST /_security/role/metricbeat_writer
 { "cluster": ["manage_ingest_pipelines", "manage_index_templates", "monitor"], "indices": [ { "names": [ "apm-*", "metricbeat-*" ], "privileges": ["write","create_index"] } ] }
 
-https://elastic:changeme@localhost:19200
+https://elastic:changeme@localhost:9200
 POST /_security/user/metricbeat_writer
 { "password" : "changeme", "roles" : [ "metricbeat_writer","kibana_user","ilm"], "full_name" : "Internal Metricbeat User" }
 
-https://elastic:changeme@localhost:19200
+https://elastic:changeme@localhost:9200
 POST /_security/user/beats_system/_password
 { "password" : "changeme" }
 
-https://elastic:changeme@localhost:19200
+https://elastic:changeme@localhost:9200
 GET /_ingest/pipeline/apm
 
-https://elastic:changeme@localhost:19200
+https://elastic:changeme@localhost:9200
 POST /_security/role/data_user
 {
   "applications": [
@@ -48,7 +48,7 @@ POST /_security/role/data_user
   "transient_metadata": { "enabled": true }
 }
 
-https://elastic:changeme@localhost:19200
+https://elastic:changeme@localhost:9200
 POST /_security/user/test_user
 {
   "email": "changeme@example.com",
@@ -57,4 +57,15 @@ POST /_security/user/test_user
   "metadata": {},
   "password": "changeme",
   "roles": [ "apm_user", "data_user" ]
+}
+
+https://elastic:changeme@localhost:9200
+POST /_security/user/reportron
+{
+  "email": "changeme@example.com",
+  "enabled": true,
+  "full_name": "Reportron",
+  "metadata": {},
+  "password": "changeme",
+  "roles": [ "reporting_user", "data_user" ]
 }

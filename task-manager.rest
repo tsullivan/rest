@@ -17,11 +17,11 @@ POST /.kibana_task_manager/_search?size=0
 }
 
 https://elastic:changeme@localhost:9200
-POST /.kibana_task_manager/_search
+POST /.kibana_task_manager/_search?filter_path=hits.hits._source.task.runAt
 {
   "query": {
     "match": {
-      "task.taskType": "reporting:execute"
+      "task.taskType": "reports:monitor"
     }
   }
 }
