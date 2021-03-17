@@ -1,0 +1,7 @@
+https://elastic:changeme@paninix
+kbn-version: 8.0.0
+GET /dev/api/saved_objects/_find?type=search&sort_field=updated_at
+
+https://elastic:changeme@paninix
+kbn-version: 8.0.0
+GET /dev/api/saved_objects/_find?type=index-pattern&sort_field=attributes.title

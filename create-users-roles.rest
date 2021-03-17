@@ -39,7 +39,7 @@ POST /_security/role/data_user
         "except": [],
         "grant": [ "*" ]
       },
-      "names": [ "tests-*" ],
+      "names": [ "kibana_sample_data*", "bee*", "test*" ],
       "privileges": [ "all" ]
     }
   ],
@@ -51,21 +51,21 @@ POST /_security/role/data_user
 https://elastic:changeme@localhost:9200
 POST /_security/user/test_user
 {
-  "email": "changeme@example.com",
+  "email": "test@example.com",
   "enabled": true,
   "full_name": "Test T. User",
   "metadata": {},
   "password": "changeme",
-  "roles": [ "apm_user", "data_user" ]
+  "roles": [ "data_user" ]
 }
 
 https://elastic:changeme@localhost:9200
 POST /_security/user/reportron
 {
-  "email": "changeme@example.com",
+  "email": "reportron@example.com",
   "enabled": true,
-  "full_name": "Reportron",
+  "full_name": "Reportron I. User",
   "metadata": {},
   "password": "changeme",
-  "roles": [ "reporting_user", "data_user" ]
+  "roles": [ "data_user", "reporting_user" ]
 }
