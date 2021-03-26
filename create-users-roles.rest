@@ -1,5 +1,5 @@
 https://elastic:changeme@localhost:19200
-POST /_security/user/kibana_system/_password
+POST /_security/user/kibana/_password
 { "password" : "changeme" }
 
 https://elastic:changeme@localhost:19200
