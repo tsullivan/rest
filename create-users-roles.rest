@@ -23,49 +23,12 @@ GET /_ingest/pipeline/apm
 
 https://elastic:changeme@localhost:19200
 POST /_security/role/data_user
-{
-  "applications": [
-    {
-      "application": "kibana-.kibana",
-      "privileges": [ "space_read" ],
-      "resources": [ "space:default" ]
-    }
-  ],
-  "cluster": [],
-  "indices": [
-    {
-      "allow_restricted_indices": false,
-      "field_security": {
-        "except": [],
-        "grant": [ "*" ]
-      },
-      "names": [ "kibana_sample_data*", "bee*", "test*" ],
-      "privileges": [ "all" ]
-    }
-  ],
-  "metadata": {},
-  "run_as": [],
-  "transient_metadata": { "enabled": true }
-}
+{ "applications": [ { "application": "kibana-.kibana", "privileges": [ "space_read" ], "resources": [ "space:default" ] } ], "cluster": [], "indices": [ { "allow_restricted_indices": false, "field_security": { "except": [], "grant": [ "*" ] }, "names": [ "kibana_sample_data*", "bee*", "test*" ], "privileges": [ "all" ] } ], "metadata": {}, "run_as": [], "transient_metadata": { "enabled": true } }
 
 https://elastic:changeme@localhost:19200
 POST /_security/user/test_user
-{
-  "email": "test@example.com",
-  "enabled": true,
-  "full_name": "Test T. User",
-  "metadata": {},
-  "password": "changeme",
-  "roles": [ "data_user" ]
-}
+{ "email": "test@example.com", "enabled": true, "full_name": "Test T. User", "metadata": {}, "password": "changeme", "roles": [ "data_user" ] }
 
 https://elastic:changeme@localhost:19200
 POST /_security/user/reportron
-{
-  "email": "reportron@example.com",
-  "enabled": true,
-  "full_name": "Reportron I. User",
-  "metadata": {},
-  "password": "changeme",
-  "roles": [ "data_user", "reporting_user" ]
-}
+{ "email": "reportron@example.com", "enabled": true, "full_name": "Reportron I. User", "metadata": {}, "password": "changeme", "roles": [ "data_user", "reporting_user" ] }
