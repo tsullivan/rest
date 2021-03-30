@@ -8,7 +8,7 @@ POST /_security/role/ilm
 
 https://elastic:changeme@localhost:19200
 POST /_security/role/metricbeat_writer
-{ "cluster": ["manage_ingest_pipelines", "manage_index_templates", "monitor"], "indices": [ { "names": [ "apm-*", "metricbeat-*" ], "privileges": ["write","create_index"] } ] }
+{ "cluster": ["manage_ingest_pipelines", "manage_index_templates", "monitor"], "indices": [ { "names": [ "apm-*", "filebeat-*", "metricbeat-*" ], "privileges": ["write","create_index"] } ] }
 
 https://elastic:changeme@localhost:19200
 POST /_security/user/metricbeat_writer
