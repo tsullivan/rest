@@ -1,0 +1,2 @@
+https://elastic:changeme@localhost:19200
+POST /_watcher/watch/cf2e3471-6a22-482a-a3a0-98a1a77c2913/_execute

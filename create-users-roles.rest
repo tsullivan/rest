@@ -1,34 +1,64 @@
-https://elastic:changeme@localhost:19200
+http://elastic:changeme@localhost:9220
 POST /_security/user/kibana/_password
 { "password" : "changeme" }
 
-https://elastic:changeme@localhost:19200
+http://elastic:changeme@localhost:9220
 POST /_security/role/ilm
 { "cluster": [ "manage_ilm" ], "indices": [ { "names": [ "ilm-*", "shrink-ilm-*", "apm-*", "metricbeat-*", "filebeat-*" ], "privileges": [ "create_index", "manage", "write", "manage_ilm" ] } ] }
 
-https://elastic:changeme@localhost:19200
+http://elastic:changeme@localhost:9220
 POST /_security/role/metricbeat_writer
 { "cluster": ["manage_ingest_pipelines", "manage_index_templates", "monitor"], "indices": [ { "names": [ "apm-*", "filebeat-*", "metricbeat-*" ], "privileges": ["write","create_index"] } ] }
 
-https://elastic:changeme@localhost:19200
+http://elastic:changeme@localhost:9220
 POST /_security/user/metricbeat_writer
 { "password" : "changeme", "roles" : [ "metricbeat_writer","kibana_user","ilm"], "full_name" : "Internal Metricbeat User" }
 
-https://elastic:changeme@localhost:19200
+http://elastic:changeme@localhost:9220
 POST /_security/user/beats_system/_password
 { "password" : "changeme" }
 
-https://elastic:changeme@localhost:19200
+http://elastic:changeme@localhost:9220
 GET /_ingest/pipeline/apm
 
-https://elastic:changeme@localhost:19200
+http://elastic:changeme@localhost:9220
 POST /_security/role/data_user
-{ "applications": [ { "application": "kibana-.kibana", "privileges": [ "space_read" ], "resources": [ "space:default" ] } ], "cluster": [], "indices": [ { "allow_restricted_indices": false, "field_security": { "except": [], "grant": [ "*" ] }, "names": [ "kibana_sample_data*", "bee*", "test*" ], "privileges": [ "all" ] } ], "metadata": {}, "run_as": [], "transient_metadata": { "enabled": true } }
+{
+  "applications": [
+    {
+      "application": "kibana-.kibana",
+      "privileges": [ "space_read" ],
+      "resources": [ "space:default" ]
+    }
+  ],
+  "cluster": [],
+  "indices": [
+    {
+      "allow_restricted_indices": false,
+      "field_security": {
+        "except": [],
+        "grant": [ "*" ]
+      },
+      "names": [ "kibana_sample_data*", "bee*", "test*" ],
+      "privileges": [ "all" ]
+    }
+  ],
+  "metadata": {},
+  "run_as": [],
+  "transient_metadata": { "enabled": true }
+}
 
-https://elastic:changeme@localhost:19200
+http://elastic:changeme@localhost:9220
 POST /_security/user/test_user
 { "email": "test@example.com", "enabled": true, "full_name": "Test T. User", "metadata": {}, "password": "changeme", "roles": [ "data_user" ] }
 
-https://elastic:changeme@localhost:19200
+http://elastic:changeme@localhost:9220
 POST /_security/user/reportron
-{ "email": "reportron@example.com", "enabled": true, "full_name": "Reportron I. User", "metadata": {}, "password": "changeme", "roles": [ "data_user", "reporting_user" ] }
+{
+  "email": "reportron@example.com",
+  "enabled": true,
+  "full_name": "Reportron I. User",
+  "metadata": {},
+  "password": "changeme",
+  "roles": [ "data_user", "kibana_user", "reporting_user" ]
+}
