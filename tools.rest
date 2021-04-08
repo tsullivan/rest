@@ -1,3 +1,6 @@
+http://elastic:changeme@localhost:9220
+GET /_security/user/reporting_user
+
 https://elastic:changeme@localhost:9200
 GET /_cat/indices
 
@@ -102,6 +105,3 @@ GET /.kibana/_doc/search:bbe45ae0-f2c7-11ea-8250-fb138aa491e7
 
 https://elastic:changeme@localhost:9200
 GET /.kibana/_doc/non_default_space:search:22bebe20-e7ee-11ea-a730-d58e9ea7581b
-
-http://elastic:changeme@localhost:9220
-GET /_security/user/license_manager_user
