@@ -1,0 +1,33 @@
+https://elastic:changeme@localhost:9200
+GET /_cat/indices/apm-*?v
+
+https://elastic:changeme@localhost:9200
+GET /_template/apm-*
+
+https://elastic:changeme@localhost:9200
+DELETE /_template/apm-8.0.0-span
+
+https://elastic:changeme@localhost:9200
+DELETE /_template/apm-8.0.0-transaction
+
+https://elastic:changeme@localhost:9200
+DELETE /apm-8.0.0-transaction-000001
+
+https://elastic:changeme@localhost:9200
+DELETE /apm-8.0.0-span-000001
+
+https://elastic:changeme@localhost:9200
+DELETE /apm-8.0.0-error-000001          
+
+https://elastic:changeme@localhost:9200
+DELETE /apm-8.0.0-profile-000001        
+
+https://elastic:changeme@localhost:9200
+DELETE /apm-8.0.0-transaction-000001    
+
+https://elastic:changeme@localhost:9200
+DELETE /apm-8.0.0-metric-000001         
+
+https://elastic:changeme@localhost:9200
+DELETE /apm-8.0.0-onboarding-2021.05.12
+DELETE /apm-8.0.0-onboarding-2021.05.05 

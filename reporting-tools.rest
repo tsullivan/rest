@@ -1,3 +1,7 @@
+https://elastic:changeme@spicy.local:443
+kbn-version: 8.0.0
+GET /kbn/_xpack/usage
+
 https://elastic:changeme@localhost:9200
 GET /_cat/indices/
 
@@ -45,7 +49,3 @@ POST /apm*/_delete_by_query
 https://elastic:changeme@localhost:9200
 POST /.reporting*/_delete_by_query
 { "query": { "match_all": {} } }
-
-https://elastic:changeme@spicy.local:443
-kbn-version: 8.0.0
-GET /kbn/_xpack/usage

@@ -2,11 +2,11 @@ http://elastic:changeme@localhost:9220
 GET /_security/user/reporting_user
 
 https://elastic:changeme@localhost:9200
-GET /_cat/indices
+GET /_cat/indices/.repor*
 
 #--------------------------------------------- 
 
-https://elastic:changeme@localhost:9200
+https://elastic:changeme@localhost:19200
 POST /.kibana_task_manager/_search?size=0
 {
   "aggs": {
@@ -19,7 +19,7 @@ POST /.kibana_task_manager/_search?size=0
   }
 }
 
-https://elastic:changeme@localhost:9200
+https://elastic:changeme@localhost:19200
 POST /.kibana_task_manager/_search
 {
   "query": {
@@ -67,41 +67,47 @@ POST /.reporting-*/_search?filter_path=hits.hits._source.status,hits.hits._sourc
   }
 }
 
-https://elastic:changeme@localhost:9200
+https://elastic:changeme@localhost:19200
 POST /.reporting-*/_search?size=50
 
 #--------------------------------------------- 
 
 https://elastic:changeme@localhost:9200
-POST /.kibana_task_manager/_delete_by_query
+POST /.kibana*/_delete_by_query
 {
   "query": {
     "match_all": {}
   }
 }
 
+https://elastic:changeme@localhost:19200
+DELETE /metricb*
+
 https://elastic:changeme@localhost:9200
 DELETE /.kibana*
 
 https://elastic:changeme@localhost:9200
-DELETE /.reporting*
+DELETE / .reporting-2021-05-30
+DELETE / .reporting-2021-05-23
+DELETE / .reporting-2021-06-06
+DELETE / .reporting-2021-05-16
 
-https://elastic:changeme@localhost:9200
+https://elastic:changeme@localhost:19200
 DELETE /.kibana_task*
  
-https://elastic:changeme@localhost:9200
+https://elastic:changeme@localhost:19200
 DELETE /kibana_sam*
 
 
-https://elastic:changeme@localhost:9200
+https://elastic:changeme@localhost:19200
 POST /_security/api_key
 { "name": "tim-is-cool" }
 
-https://elastic:changeme@localhost:9200
+https://elastic:changeme@localhost:19200
 GET /.kibana/_doc/index-pattern:aac3e500-f2c7-11ea-8250-fb138aa491e7
 
-https://elastic:changeme@localhost:9200
+https://elastic:changeme@localhost:19200
 GET /.kibana/_doc/search:bbe45ae0-f2c7-11ea-8250-fb138aa491e7
 
-https://elastic:changeme@localhost:9200
+https://elastic:changeme@localhost:19200
 GET /.kibana/_doc/non_default_space:search:22bebe20-e7ee-11ea-a730-d58e9ea7581b
