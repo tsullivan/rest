@@ -1,19 +1,22 @@
-https://elastic:changeme@spicy.local:443
-kbn-version: 8.0.0
-GET /kbn/_xpack/usage
+https://elastic:changeme@localhost:19200
+GET /_cat/indices/.re*?v
 
-https://elastic:changeme@localhost:9200
-GET /_cat/indices/
+https://elastic:changeme@localhost:19200
+GET /.reporting-2021-06-27/_settings
 
-https://elastic:changeme@localhost:9200
+https://elastic:changeme@localhost:19200
+DELETE /.reporting-2021-06-27
+
+https://elastic:changeme@localhost:19200
 DELETE /license
 
-https://elastic:changeme@localhost:9200
+https://elastic:changeme@localhost:19200
 DELETE /.kibana*
 
-https://elastic:changeme@localhost:9200
+https://elastic:changeme@localhost:19200
 POST /.reporting*/_search
 {
+  "size": 50,
   "query": {
     "match_all": {}
   },
@@ -22,30 +25,44 @@ POST /.reporting*/_search
   }
 }
 
-https://elastic:changeme@localhost:9200
+https://elastic:changeme@localhost:19200
 POST /.kibana_task_manager/_search
 { "query": { "match_all": {} } }
 
-https://elastic:changeme@localhost:9200
+https://elastic:changeme@localhost:19200
 POST /.kibana*/_delete_by_query
 { "query": { "match_all": {} } }
 
-https://elastic:changeme@localhost:9200
+https://elastic:changeme@localhost:19200
 DELETE /.kibana_task_manager*
 
-https://elastic:changeme@localhost:9200
+https://elastic:changeme@localhost:19200
 DELETE /.kibana*
 
-https://elastic:changeme@localhost:9200
-DELETE /.reporting*
-
-https://elastic:changeme@localhost:9200
+https://elastic:changeme@localhost:19200
 GET /_license
 
-https://elastic:changeme@localhost:9200
+https://elastic:changeme@localhost:19200
 POST /apm*/_delete_by_query
 { "query": { "match_all": {} } }
 
-https://elastic:changeme@localhost:9200
+https://elastic:changeme@localhost:19200
 POST /.reporting*/_delete_by_query
 { "query": { "match_all": {} } }
+
+https://elastic:changeme@localhost:19200
+GET /.reporting-2021-06-20/_doc/kq8sgp6ealwd0763b57jap1h
+
+
+
+
+https://elastic:changeme@localhost:19200
+PUT /_template/my-cool-reporting-template
+{
+  "index_patterns": [".reporting-*"]
+}
+
+https://elastic:changeme@spicy.local:443
+kbn-version: 8.0.0
+GET /kbn/_xpack/usage
+
