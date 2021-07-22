@@ -1,5 +1,5 @@
 https://elastic:changeme@localhost:9200
-DELETE /.reporting-2021-07-18
+DELETE /.reporting-2020.04.19
 
 https://elastic:changeme@localhost:9200
 GET /_cat/indices/.re*?v
@@ -63,3 +63,6 @@ https://elastic:changeme@spicy.local:443
 kbn-version: 8.0.0
 GET /kbn/_xpack/usage
 
+https://elastic:changeme@localhost:9200
+PUT /.reporting-*/_settings
+{ "settings": { "index.lifecycle.name": null } }
