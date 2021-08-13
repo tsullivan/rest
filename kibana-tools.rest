@@ -5,3 +5,13 @@ GET /dev/api/saved_objects/_find?type=search&sort_field=updated_at
 https://elastic:changeme@paninix
 kbn-version: 8.0.0
 GET /dev/api/saved_objects/_find?type=index-pattern&sort_field=attributes.title
+
+https://elastic:changeme@localhost:9200
+GET /_cat/indices/.k*
+
+https://elastic:changeme@localhost:9200
+DELETE /.kibana-event-log-8.0.0-000001 
+DELETE /.kibana_8.0.0_001              
+DELETE /.kibana-event-log-8.0.0-000002 
+DELETE /.kibana_task_manager_8.0.0_001 
+DELETE /.kibana_security_session_1     

@@ -1,31 +1,4 @@
-https://elastic:changeme@spicy.local
+http://elastic:changeme@localhost:5601
 kbn-version: 8.0.0
-POST /kbn/api/reporting/generate/printablePdf
-
-https://elastic:changeme@spicy.local
-kbn-version: 8.0.0
-POST /kbn/api/reporting/generate/printablePdf
-
-https://elastic:changeme@spicy.local
-GET /kbn/api/saved_objects/telemetry:telemetry
-
-http://elastic:changeme@localhost:9200
-PUT /.kibana/_doc/telemetry:telemetry
-{
-  "telemetry" : {
-    "enabled" : false
-  },
-  "type" : "telemetry",
-  "updated_at" : "2019-11-19T00:04:25.690Z"
-}
-
-http://elastic:changeme@localhost:9200
-GET /.kibana/_doc/telemetry:telemetry
-
-http://elastic:changeme@localhost:9200
-POST /.kibana/_delete_by_query
-{
-  "query": {
-    "match_all": {}
-  }
-}
+POST /api/telemetry/v2/clusters/_stats
+{"unencrypted":true}
