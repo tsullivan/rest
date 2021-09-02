@@ -5,6 +5,9 @@ POST /kbn/api/reporting/generate/printablePdf
 #############################################
 
 https://elastic:changeme@localhost:9200
+GET /_cat/indices/.re*
+
+https://elastic:changeme@localhost:9200
 POST /.reporting*/_search
 {
   "query": {

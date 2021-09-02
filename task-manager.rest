@@ -10,14 +10,24 @@ POST /.kibana_task_manager/_search?size=0
     "types": {
       "terms": {
         "field": "task.taskType",
-        "size": 10
+        "size": 100
       }
     }
   }
 }
 
 https://elastic:changeme@localhost:9200
-POST /.kibana_task_manager/_search?filter_path=hits.hits._source.task.runAt,hits.hits._source.task.scheduledAt,hits.hits._source.task.params
+POST /.kibana_task_manager/_search
+{
+  "query": {
+    "match": {
+      "task.taskType": "report:execute"
+    }
+  }
+}
+
+https://elastic:changeme@localhost:9200
+POST /.kibana_task_manager/_delete_by_query
 {
   "query": {
     "match": {
