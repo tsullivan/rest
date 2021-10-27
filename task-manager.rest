@@ -16,7 +16,7 @@ POST /.kibana_task_manager/_search?size=0
   }
 }
 
-https://elastic:changeme@localhost:9200
+http://elastic:changeme@localhost:9220
 POST /.kibana_task_manager/_search
 {
   "query": {
@@ -26,7 +26,7 @@ POST /.kibana_task_manager/_search
   }
 }
 
-https://elastic:changeme@localhost:9200
+http://elastic:changeme@localhost:9220
 POST /.kibana_task_manager/_delete_by_query
 {
   "query": {
