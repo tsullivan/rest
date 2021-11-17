@@ -2,7 +2,7 @@ http://elastic:changeme@localhost:9220
 GET /_security/user/reporting_user
 
 https://elastic:changeme@localhost:9200
-GET /_cat/indices/.repor*
+GET /_cat/indices/
 
 #--------------------------------------------- 
 
@@ -87,10 +87,9 @@ https://elastic:changeme@localhost:9200
 DELETE /.kibana*
 
 https://elastic:changeme@localhost:9200
-DELETE / .reporting-2021-05-30
-DELETE / .reporting-2021-05-23
-DELETE / .reporting-2021-06-06
-DELETE / .reporting-2021-05-16
+DELETE /tests-001
+DELETE /tests-002
+DELETE /tests-003
 
 https://elastic:changeme@localhost:19200
 DELETE /.kibana_task*

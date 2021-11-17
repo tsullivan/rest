@@ -3,7 +3,7 @@ GET /_cat/indices
 
 #--------------------------------------------- 
 
-https://elastic:changeme@localhost:9200
+https://elastic:changeme@localhost:19200
 POST /.kibana_task_manager/_search?size=0
 {
   "aggs": {
@@ -16,17 +16,17 @@ POST /.kibana_task_manager/_search?size=0
   }
 }
 
-http://elastic:changeme@localhost:9220
+https://elastic:changeme@localhost:9200
 POST /.kibana_task_manager/_search
 {
   "query": {
     "match": {
-      "task.taskType": "report:execute"
+      "task.taskType": "reports:monitor"
     }
   }
 }
 
-http://elastic:changeme@localhost:9220
+https://elastic:changeme@localhost:9200
 POST /.kibana_task_manager/_delete_by_query
 {
   "query": {

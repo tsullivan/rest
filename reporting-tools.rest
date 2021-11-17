@@ -1,4 +1,10 @@
 https://elastic:changeme@localhost:9200
+GET /_cat/indices/.reporting*
+
+https://elastic:changeme@localhost:9200
+DELETE /.reporting-2021-11-14
+
+https://elastic:changeme@localhost:9200
 POST /.reporting*/_search
 {
   "size": 50,
@@ -6,6 +12,6 @@ POST /.reporting*/_search
     "match_all": {}
   },
   "_source": {
-    "excludes": ["output", "payload"]
+    "excludes": ["output.content", "payload"]
   }
 }
