@@ -15,3 +15,11 @@ POST /.reporting*/_search
     "excludes": ["output.content", "payload"]
   }
 }
+
+https://elastic:changeme@localhost:9200
+POST /.reporting*/_delete_by_query
+{
+  "query": {
+    "match_all": {}
+  }
+}
