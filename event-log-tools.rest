@@ -1,0 +1,9 @@
+https://elastic:changeme@localhost:9200
+GET /_cat/indices/.k*?v
+
+https://elastic:changeme@localhost:9200
+POST /.kibana-event-log-8*/_search
+{
+  "size": 1000
+}
+

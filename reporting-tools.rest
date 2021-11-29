@@ -7,12 +7,19 @@ DELETE /.reporting-2021-11-14
 https://elastic:changeme@localhost:9200
 POST /.reporting*/_search
 {
-  "size": 50,
   "query": {
     "match_all": {}
   },
   "_source": {
     "excludes": ["output.content", "payload"]
+  }
+}
+
+https://elastic:changeme@localhost:9200
+POST /.reporting*/_count
+{
+  "query": {
+    "match_all": {}
   }
 }
 

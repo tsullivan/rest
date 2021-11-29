@@ -1,14 +1,25 @@
 http://elastic:changeme@localhost:9220
 GET /_security/user/reporting_user
 
-https://elastic:changeme@localhost:9200
-GET /_cat/indices/
+https://elastic:changeme@localhost:19200
+GET /_cat/indices/.k*?v
 
-https://elastic:changeme@localhost:9200
+https://elastic:changeme@localhost:19200
 DELETE /png_benchmarks-001
 
-https://elastic:changeme@localhost:9200
+https://elastic:changeme@localhost:19200
 POST /_forcemerge
+
+https://elastic:changeme@localhost:19200
+PUT /_cluster/settings
+{
+  "transient": {
+    "cluster.routing.allocation.disk.watermark.low": "10gb",
+    "cluster.routing.allocation.disk.watermark.high": "5gb",
+    "cluster.routing.allocation.disk.watermark.flood_stage": "1gb",
+    "cluster.info.update.interval": "1m"
+  }
+}
 
 #--------------------------------------------- 
 
@@ -78,7 +89,7 @@ POST /.reporting-*/_search?size=50
 
 #--------------------------------------------- 
 
-https://elastic:changeme@localhost:9200
+https://elastic:changeme@localhost:19200
 POST /.kibana*/_delete_by_query
 {
   "query": {
@@ -89,20 +100,28 @@ POST /.kibana*/_delete_by_query
 https://elastic:changeme@localhost:19200
 DELETE /metricb*
 
-https://elastic:changeme@localhost:9200
+https://elastic:changeme@localhost:19200
 DELETE /.kibana*
 
-https://elastic:changeme@localhost:9200
+https://elastic:changeme@localhost:19200
 DELETE /tests-001
 DELETE /tests-002
 DELETE /tests-003
 
 https://elastic:changeme@localhost:19200
-DELETE /.kibana_task*
+DELETE /.kibana
  
 https://elastic:changeme@localhost:19200
 DELETE /kibana_sam*
 
+https://elastic:changeme@localhost:19200
+DELETE /.kibana_7.15.1_001                       
+DELETE /.kibana-event-log-7.15.1-000001          
+DELETE /.kibana_security_session_1               
+DELETE /.kibana_task_manager_7.15.3_001          
+DELETE /.kibana-event-log-7.15.3-snapshot-000001 
+DELETE /.kibana_7.15.3_001                       
+DELETE /.kibana_task_manager_7.15.1_001          
 
 https://elastic:changeme@localhost:19200
 POST /_security/api_key
@@ -116,3 +135,13 @@ GET /.kibana/_doc/search:bbe45ae0-f2c7-11ea-8250-fb138aa491e7
 
 https://elastic:changeme@localhost:19200
 GET /.kibana/_doc/non_default_space:search:22bebe20-e7ee-11ea-a730-d58e9ea7581b
+
+https://elastic:changeme@localhost:19200
+GET /_settings
+{
+  "index": {
+    "blocks": {
+      "read_only_allow_delete": "false"
+    }
+  }
+}
