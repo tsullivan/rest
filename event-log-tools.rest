@@ -1,5 +1,11 @@
 https://elastic:changeme@localhost:9200
-GET /_cat/indices/.k*?v
+GET /_cat/indices/.kibana-event-log*?v
+
+https://elastic:changeme@localhost:9200
+GET /_template/.kibana-event-log-8.1.0-template
+
+https://elastic:changeme@localhost:9200
+GET /_template/.k*
 
 https://elastic:changeme@localhost:9200
 POST /.kibana-event-log-8*/_search
@@ -7,3 +13,8 @@ POST /.kibana-event-log-8*/_search
   "size": 1000
 }
 
+https://elastic:changeme@localhost:9200
+GET /.kibana-event-log-8*/_mapping
+
+https://elastic:changeme@localhost:9200
+DELETE /.kibana-event-log-8.1.0-000001

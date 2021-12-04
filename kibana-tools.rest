@@ -1,4 +1,4 @@
-https://elastic:changeme@localhost:9200
+https://elastic:changeme@localhost:19200
 GET /_cat/indices/.k*
 
 https://elastic:changeme@localhost:9200
@@ -6,6 +6,16 @@ DELETE /.kibana_8.1.0_001
 DELETE /.kibana_task_manager_8.1.0_001
 DELETE /.kibana_security_session_1
 DELETE /.kibana-event-log-8.1.0-000001
+DELETE /.kibana_7.15.1_001                       
+DELETE /.kibana-event-log-7.15.1-000001          
+DELETE /.kibana-event-log-7.15.2-000001          
+DELETE /.kibana_security_session_1               
+DELETE /.kibana_task_manager_7.15.3_001          
+DELETE /.kibana_7.15.2_001                       
+DELETE /.kibana-event-log-7.15.3-snapshot-000001 
+DELETE /.kibana_7.15.3_001                       
+DELETE /.kibana_task_manager_7.15.1_001          
+DELETE /.kibana_task_manager_7.15.2_001          
 
 
 https://elastic:changeme@localhost:9200
